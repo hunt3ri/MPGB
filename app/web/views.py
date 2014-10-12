@@ -1,13 +1,7 @@
 from flask import render_template, session, redirect, url_for
-from flask.ext.wtf import Form
-from wtforms import StringField, SubmitField
-from wtforms.validators import DataRequired
 from . import main
+from .forms import NameForm
 
-
-class NameForm(Form):
-    name = StringField('What is your name?', validators=[DataRequired()])
-    submit = SubmitField('Submit')
 
 @main.route('/')
 def index():
