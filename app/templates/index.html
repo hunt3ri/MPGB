@@ -10,10 +10,10 @@
     <div class="col-md-3">
     </div>
     <div class="col-md-6">
-        <a class="button btn btn-primary btn-lg btn-block" href="{{ url_for('main.booking', partner='byojet') }}" role="button">Book with BYOJet</a>
-        <a class="button btn btn-primary btn-lg btn-block" href="{{ url_for('main.booking', partner='pan') }}"role="button">Book with Pan</a>
-        <a class="button btn btn-success btn-lg btn-block" href="{{ url_for('main.booking', partner='rentalcars') }}" role="button">Book with Rental Cars</a>
-        <a class="button btn btn-warning btn-lg btn-block" href="{{ url_for('main.booking', partner='hotel') }}" role="button">Book with Hotel</a>
+        <a class="button btn btn-primary btn-lg btn-block" href="{{ url_for('main.booking', partner='byojet', type="flight") }}" role="button">Book with BYOJet</a>
+        <a class="button btn btn-primary btn-lg btn-block" href="{{ url_for('main.booking', partner='pan', type="flight") }}"role="button">Book with Pan</a>
+        <a class="button btn btn-success btn-lg btn-block" href="{{ url_for('main.booking', partner='rentalcars', type="car") }}" role="button">Book with Rental Cars</a>
+        <a class="button btn btn-warning btn-lg btn-block" href="{{ url_for('main.booking', partner='hilton', type="hotel") }}" role="button">Book with Hotel</a>
     </div>
     <div class="col-md-3">
     </div>

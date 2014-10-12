@@ -1,6 +1,6 @@
-from flask import render_template, session, redirect, url_for
+from flask import render_template, session, redirect, url_for, request
 from . import main
-from .forms import NameForm
+from .forms import FlightsForm, CarForm, HotelForm
 
 
 @main.route('/')
@@ -13,8 +13,18 @@ def about():
 
 @main.route('/book/with/<partner>', methods=['GET', 'POST'])
 def booking(partner):
-    name = None
-    form = NameForm()
+
+    form = None
+    partner_type = request.args.get('type')
+
+    # Initialise correct form
+    if partner_type == 'flight':
+        form = FlightsForm()
+    elif partner_type == 'car':
+        form = CarForm()
+    elif partner_type == 'hotel':
+        form = HotelForm()
+
     if form.validate_on_submit():
         session['name'] = form.name.data
         form.name.data = ''
