@@ -1,9 +1,21 @@
 {% extends "base.html" %}
 
-{% block title %}WeAre.scot{% endblock %}
+{% block title %}MPGB{% endblock %}
 
 {% block page_content %}
 <div class="page-header">
-    <h1>Hello World!</h1>
+    <h1>Select a travel product</h1>
+</div>
+<div class="row">
+    <div class="col-md-3">
+    </div>
+    <div class="col-md-6">
+        <a class="button btn btn-primary btn-lg btn-block" href="{{ url_for('main.booking', partner='byojet') }}" role="button">Book with BYOJet</a>
+        <a class="button btn btn-primary btn-lg btn-block" href="{{ url_for('main.booking', partner='pan') }}"role="button">Book with Pan</a>
+        <a class="button btn btn-success btn-lg btn-block" href="{{ url_for('main.booking', partner='rentalcars') }}" role="button">Book with Rental Cars</a>
+        <a class="button btn btn-warning btn-lg btn-block" href="{{ url_for('main.booking', partner='hotel') }}" role="button">Book with Hotel</a>
+    </div>
+    <div class="col-md-3">
+    </div>
 </div>
 {% endblock %}

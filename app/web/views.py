@@ -10,6 +10,9 @@ def index():
 def about():
     return render_template('about.html')
 
+@main.route('/book/with/<partner>')
+def booking(partner):
+    return render_template('booking.html', partner=partner)
 
 @main.route('/user/<name>')
 def user(name):
