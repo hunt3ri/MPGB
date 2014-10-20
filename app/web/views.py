@@ -33,10 +33,11 @@ def booking(partner):
         form.name.data = ''
         return redirect(url_for('main.confirmation'))
 
-    mp.track('Page Load', 'Booking Form Loaded', properties={'Partner': partner})
+    mp.track('Page Load', 'Booking Form Loaded', properties={'Partner': partner, 'Vertical': partner_type})
     return render_template('booking.html', partner=partner, form=form)
 
 @main.route('/success')
 def confirmation():
+    mp.track('Page Load', 'Confirmation Page')
     return render_template('handover.html', name=session.get('name'))
 
