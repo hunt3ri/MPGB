@@ -1,7 +1,9 @@
 from flask import render_template, session, redirect, url_for, request
 from . import main
 from .forms import FlightsForm, CarForm, HotelForm
+from mixpanel import Mixpanel
 
+mp = Mixpanel('a841f59eae14574faf89743aa6da80d8')
 
 @main.route('/')
 def index():
@@ -13,6 +15,7 @@ def about():
 
 @main.route('/book/with/<partner>', methods=['GET', 'POST'])
 def booking(partner):
+
 
     form = None
     partner_type = request.args.get('type')
@@ -29,6 +32,8 @@ def booking(partner):
         session['name'] = form.name.data
         form.name.data = ''
         return redirect(url_for('main.confirmation'))
+
+    mp.track('Page Load', 'Booking Form Loaded', properties={'Partner': partner})
     return render_template('booking.html', partner=partner, form=form)
 
 @main.route('/success')
