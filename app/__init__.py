@@ -11,6 +11,9 @@ def bootstrap_app():
     app.config['SECRET_KEY'] = 'hard to guess string'  # used by extensions as an encryption key
 
     from .web import main as main_blueprint
+    from app.api import api as api_blueprint
+
     app.register_blueprint(main_blueprint)
+    app.register_blueprint(api_blueprint)
 
     return app
