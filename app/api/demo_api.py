@@ -18,8 +18,8 @@ def get_revenue():
 
 @api.route('/api/latency', methods=['GET'])
 def get_latency():
-    min = dict(value=100, text="Min Latency (ms)")
-    max = dict(value=500, text="Max Latency (ms)")
+    min = dict(value=100, text="(ms)")
+    max = dict(value=500, text="(ms)")
     latency = dict(item=325, min=min, max=max)
     return jsonify(latency)
 
