@@ -26,16 +26,19 @@ def get_latency():
 
 @api.route('/api/get_locations', methods=['GET'])
 def get_locations():
-    london = dict(city_name="London", country_code="UK")
-    glasgow = dict(city_name="Glasgow", country_code="UK")
+    london = dict(city_name="London", country_code="GB")
+    glasgow = dict(city_name="Glasgow", country_code="GB")
     sydney = dict(city_name="Sydney", country_code="AU")
     new_york = dict(city_name="New York", country_code="US")
     cape_town = dict(city_name="Cape Town", country_code="ZA")
 
     point1 = dict(city=london, size=10)
     point2 = dict(city=sydney, size=5)
+    point3 = dict(city=glasgow, size=5)
+    point4 = dict(city=new_york, size=10)
+    point5 = dict(city=cape_town, size=10)
 
-    point_list = [point1, point2]
+    point_list = [point1, point2, point3, point4, point5]
     points = dict(point=point_list)
 
     return jsonify(points=points)
