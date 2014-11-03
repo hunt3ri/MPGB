@@ -12,3 +12,11 @@
 {{ wtf.quick_form(form) }}
 </div>
 {% endblock %}
+
+{%  block page_scripts %}
+    <script>
+        window.onload = function() {
+            window.alert("Hello Iain")
+        }
+    </script>
+{% endblock %}
